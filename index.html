@@ -133,7 +133,7 @@
           var labels = response.result.labels;
           appendPre('Newsletters:');
 
-          if (labels && labels.name=="Newsletters/Tim Ferriss") {
+          if (labels.name=="Newsletters/Tim Ferriss") {
             for (i = 0; i < labels.length; i++) {
               var label = labels[i];
               appendPre(label.name)

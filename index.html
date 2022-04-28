@@ -67,6 +67,7 @@
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           listLabels();
+          listNewsletterLabels();
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
@@ -119,7 +120,30 @@
             appendPre('No Labels found.');
           }
         });
+    }
+
+    /**
+       * Print all Labels in the authorized user's inbox. If no labels
+       * are found an appropriate message is printed.
+       */
+       function listNewsletterLabels() {
+        gapi.client.gmail.users.labels.list({
+          'userId': 'me'
+        }).then(function(response) {
+          var labels = response.result.labels;
+          appendPre('Labels:');
+
+          if (labels && labels.length > 0 && label.name == "Newsletters") {
+            for (i = 0; i < labels.length; i++) {
+              var label = labels[i];
+              appendPre(label.name)
+            }
+          } else {
+            appendPre('No Labels found.');
+          }
+        });
       }
+       
 
     </script>
 

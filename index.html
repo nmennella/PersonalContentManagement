@@ -131,9 +131,9 @@
           'userId': 'me'
         }).then(function(response) {
           var labels = response.result.labels;
-          appendPre('Labels:');
+          appendPre('Newsletters:');
 
-          if (labels && labels.length > 0 && label.name == "Newsletters") {
+          if (label.name == "Newsletters/Tim Ferriss") {
             for (i = 0; i < labels.length; i++) {
               var label = labels[i];
               appendPre(label.name)
